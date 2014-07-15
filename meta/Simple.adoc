@@ -27,7 +27,7 @@ MATCH (a:Article {name:'A3'}),(b:Article {name:'A1'}) CREATE (a)<-[r:PARENT_OF]-
 
 [source,cypher]
 ----
-MATCH n RETURN n
+MATCH n-[r]->m RETURN n,r,m
 ----
 
 

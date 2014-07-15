@@ -9,7 +9,7 @@ CREATE (n:Article {name: 'A1'});
 MATCH (a:Role {name:'R1'}),(b:Role {name:'R2'}) CREATE (a)<-[r:MEMBER_OF]-(b);
 MATCH (a:Role {name:'R2'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
 MATCH (a:Role {name:'R3'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
-MATCH (a:Article {name:'A1'}),(b:Role {name:'R2'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:true}]-(b);
+MATCH (a:Article {name:'A1'}),(b:Role {name:'R1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:true}]-(b);
 MATCH (a:Article {name:'A1'}),(b:Role {name:'R3'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:false}]-(b);
 ----
 

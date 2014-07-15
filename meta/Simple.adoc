@@ -12,6 +12,9 @@ CREATE (n:Article {name: 'A2'});
 CREATE (n:Article {name: 'A3'});
 MATCH (a:Role {name:'R1'}),(b:Role {name:'R2'}) CREATE (a)<-[r:MEMBER_OF]-(b);
 MATCH (a:Role {name:'R1'}),(b:Role {name:'R3'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R1'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R2'}),(b:User {name:'U2'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R3'}),(b:User {name:'U3'}) CREATE (a)<-[r:MEMBER_OF]-(b);
 ----
 
 

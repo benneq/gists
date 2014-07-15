@@ -17,7 +17,7 @@ CREATE (n:Article {name: 'A3'});
 
 [source,cypher]
 ----
-
+MATCH n RETURN n
 ----
 
 

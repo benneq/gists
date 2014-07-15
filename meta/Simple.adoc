@@ -10,6 +10,8 @@ CREATE (n:User {name: 'U3'});
 CREATE (n:Article {name: 'A1'});
 CREATE (n:Article {name: 'A2'});
 CREATE (n:Article {name: 'A3'});
+MATCH (a:Role {name:'R1'}),(b:Role {name:'R2'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R1'}),(b:Role {name:'R3'}) CREATE (a)<-[r:MEMBER_OF]-(b);
 ----
 
 

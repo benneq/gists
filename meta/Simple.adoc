@@ -1,15 +1,15 @@
 //setup
 [source,cypher]
 ----
-CREATE (n:Role {name: 'R1‘})
-CREATE (n:Role {name: 'R2‘})
-CREATE (n:Role {name: 'R3‘})
-CREATE (n:User {name: 'U1‘})
-CREATE (n:User {name: 'U2‘})
-CREATE (n:User {name: 'U3‘})
-CREATE (n:Article {name: 'A1‘})
-CREATE (n:Article {name: 'A2‘})
-CREATE (n:Article {name: 'A3‘})
+CREATE (n:Role {name: 'R1'})
+CREATE (n:Role {name: 'R2'})
+CREATE (n:Role {name: 'R3'})
+CREATE (n:User {name: 'U1'})
+CREATE (n:User {name: 'U2'})
+CREATE (n:User {name: 'U3'})
+CREATE (n:Article {name: 'A1'})
+CREATE (n:Article {name: 'A2'})
+CREATE (n:Article {name: 'A3'})
 ----
 
 

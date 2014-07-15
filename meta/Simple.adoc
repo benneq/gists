@@ -16,8 +16,10 @@ MATCH (a:Role {name:'R1'}),(b:Role {name:'R3'}) CREATE (a)<-[r:MEMBER_OF]-(b);
 MATCH (a:Role {name:'R1'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
 MATCH (a:Role {name:'R2'}),(b:User {name:'U2'}) CREATE (a)<-[r:MEMBER_OF]-(b);
 MATCH (a:Role {name:'R3'}),(b:User {name:'U3'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Article {name:'A2'}),(b:User {name:'U1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:true}]-(b);
 MATCH (a:Article {name:'A1'}),(b:User {name:'U2'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:false}]-(b);
 MATCH (a:Article {name:'A2'}),(b:User {name:'U2'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:true}]-(b);
+MATCH (a:Article {name:'A3'}),(b:User {name:'U2'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false, WRITE:false}]-(b);
 MATCH (a:Article {name:'A2'}),(b:Role {name:'R1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:false}]-(b);
 MATCH (a:Article {name:'A3'}),(b:Article {name:'A1'}) CREATE (a)<-[r:PARENT_OF]-(b);
 ----

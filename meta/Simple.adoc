@@ -1,35 +1,16 @@
-= A simple GraphGist
+//setup
+[source,cypher]
+----
+CREATE (you:Person {name:"You"})-[like:LIKE]->(us:Database:NoSql:Graph {name:"Neo4j" })
+RETURN you, like, us
+----
 
-:author: Anders Nawroth
-:twitter: @nawroth
-
-You create a GraphGist by creating a https://gist.github.com/[GitHub Gist] in http://asciidoctor.org/docs/asciidoc-quick-reference/[AsciiDoc] and enter the URL to it in the form on this page.
-
-Click on the Page Source button in the menu to see the source for this GraphGist!
-
-== Include a query console
-
-+//console+
-
-becomes:
-
-//console
-
-== Define a http://docs.neo4j.org/chunked/snapshot/cypher-query-lang.html[Cypher] query
-
- [source,cypher]
- ----
- CREATE (n{name:'cypher'})-[r:LIKES]->({name:'icecream'}) return n.name, r
- ----
-
-becomes:
+//graph
 
 [source,cypher]
 ----
-CREATE (n{name:'cypher'})-[r:LIKES]->({name:'icecream'}) return n.name, r
+MATCH (you:Person {name:"You"})-[like:LIKE]->(liked)
+RETURN you.name AS who, type(like) AS how, liked.name AS what
 ----
 
-_Queries are executed in the order they appear on the page during rendering, so make sure they can be performed in that order._
-Each query has a green or red button to indicate if the query was successful or not.
-The console is set up after the executions, with an empty database, for the reader to play around with the queries.
-
+//table

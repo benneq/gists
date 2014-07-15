@@ -1,8 +1,15 @@
 //setup
 [source,cypher]
 ----
-CREATE (you:Person {name:"You"})-[like:LIKE]->(us:Database:NoSql:Graph {name:"Neo4j" })
-RETURN you, like, us
+CREATE (n:Role {name: 'R1‘})
+CREATE (n:Role {name: 'R2‘})
+CREATE (n:Role {name: 'R3‘})
+CREATE (n:User {name: 'U1‘})
+CREATE (n:User {name: 'U2‘})
+CREATE (n:User {name: 'U3‘})
+CREATE (n:Article {name: 'A1‘})
+CREATE (n:Article {name: 'A2‘})
+CREATE (n:Article {name: 'A3‘})
 ----
 
 
@@ -10,8 +17,7 @@ RETURN you, like, us
 
 [source,cypher]
 ----
-MATCH (you:Person {name:"You"})-[like:LIKE]->(liked)
-RETURN you.name AS who, type(like) AS how, liked.name AS what
+
 ----
 
 

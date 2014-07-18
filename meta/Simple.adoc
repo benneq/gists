@@ -1,31 +1,111 @@
 //setup
 [source,cypher]
 ----
+CREATE (n:User {name: 'U1'});
 CREATE (n:Role {name: 'R1'});
 CREATE (n:Role {name: 'R2'});
 CREATE (n:Role {name: 'R3'});
-CREATE (n:User {name: 'U1'});
-CREATE (n:User {name: 'U2'});
-CREATE (n:User {name: 'U3'});
-CREATE (n:Article {name: 'A1'});
-CREATE (n:Article {name: 'A2'});
-CREATE (n:Article {name: 'A3'});
-CREATE (n:Article {name: 'A4'});
-CREATE (n:Article {name: 'A5'});
-MATCH (a:Role {name:'R1'}),(b:Role {name:'R2'}) CREATE (a)<-[r:MEMBER_OF]-(b);
-MATCH (a:Role {name:'R1'}),(b:Role {name:'R3'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+CREATE (n:Role {name: 'R4'});
+CREATE (n:Role {name: 'R5'});
+CREATE (n:Role {name: 'R6'});
+CREATE (n:Role {name: 'R7'});
+CREATE (n:Role {name: 'R8'});
+CREATE (n:Role {name: 'R9'});
+CREATE (n:Role {name: 'R10'});
+CREATE (n:Role {name: 'R11'});
+CREATE (n:Role {name: 'R12'});
+CREATE (n:Role {name: 'R13'});
+CREATE (n:Role {name: 'R14'});
+CREATE (n:Role {name: 'R15'});
+CREATE (n:Role {name: 'R16'});
+CREATE (n:Role {name: 'R17'});
+CREATE (n:Role {name: 'R18'});
+CREATE (n:Role {name: 'R19'});
+CREATE (n:Role {name: 'R20'});
+CREATE (n:Object {name: 'O1'});
+CREATE (n:Object {name: 'O2'});
+CREATE (n:Object {name: 'O3'});
+CREATE (n:Object {name: 'O4'});
+CREATE (n:Object {name: 'O5'});
+CREATE (n:Object {name: 'O6'});
+CREATE (n:Object {name: 'O7'});
+CREATE (n:Object {name: 'O8'});
+CREATE (n:Object {name: 'O9'});
+CREATE (n:Object {name: 'O10'});
+CREATE (n:Object {name: 'O11'});
+CREATE (n:Object {name: 'O12'});
+CREATE (n:Object {name: 'O13'});
+CREATE (n:Object {name: 'O14'});
+CREATE (n:Object {name: 'O15'});
+CREATE (n:Object {name: 'O16'});
+CREATE (n:Object {name: 'O17'});
+CREATE (n:Object {name: 'O18'});
+CREATE (n:Object {name: 'O19'});
+CREATE (n:Object {name: 'O20'});
+
+MATCH (a:Object {name:'O1'}),(b:User {name:'U1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+
 MATCH (a:Role {name:'R1'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
-MATCH (a:Role {name:'R2'}),(b:User {name:'U2'}) CREATE (a)<-[r:MEMBER_OF]-(b);
-MATCH (a:Role {name:'R3'}),(b:User {name:'U3'}) CREATE (a)<-[r:MEMBER_OF]-(b);
-MATCH (a:Role {name:'R2'}),(b:User {name:'U3'}) CREATE (a)<-[r:MEMBER_OF]-(b);
-MATCH (a:Article {name:'A1'}),(b:User {name:'U1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:true}]-(b);
-MATCH (a:Article {name:'A1'}),(b:User {name:'U2'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:false}]-(b);
-MATCH (a:Article {name:'A2'}),(b:User {name:'U2'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:true}]-(b);
-MATCH (a:Article {name:'A3'}),(b:User {name:'U2'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false, WRITE:false}]-(b);
-MATCH (a:Article {name:'A2'}),(b:Role {name:'R1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:false}]-(b);
-MATCH (a:Article {name:'A5'}),(b:Role {name:'R2'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:false}]-(b);
-MATCH (a:Article {name:'A5'}),(b:Role {name:'R3'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true, WRITE:true}]-(b);
-MATCH (a:Article {name:'A3'}),(b:Article {name:'A1'}) CREATE (a)<-[r:PARENT_OF]-(b);
+MATCH (a:Object {name:'O2'}),(b:Role {name:'R1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+
+MATCH (a:Role {name:'R2'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R3'}),(b:Role {name:'R2'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Object {name:'O3'}),(b:Role {name:'R3'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+
+MATCH (a:Role {name:'R4'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Object {name:'O4'}),(b:User {name:'U1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false}]-(b);
+MATCH (a:Object {name:'O4'}),(b:Role {name:'R4'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+
+MATCH (a:Role {name:'R5'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R6'}),(b:Role {name:'R5'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Object {name:'O5'}),(b:Role {name:'R6'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+MATCH (a:Object {name:'O5'}),(b:User {name:'U1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false}]-(b);
+
+MATCH (a:Role {name:'R7'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R8'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Object {name:'O6'}),(b:Role {name:'R7'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+MATCH (a:Object {name:'O6'}),(b:Role {name:'R8'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false}]-(b);
+
+MATCH (a:Object {name:'O7'}),(b:User {name:'U1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+MATCH (a:Object {name:'O8'}),(b:Object {name:'O7'}) CREATE (a)<-[r:PARENT_OF]-(b);
+
+MATCH (a:Object {name:'O9'}),(b:User {name:'U1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+MATCH (a:Object {name:'O10'}),(b:User {name:'U1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false}]-(b);
+MATCH (a:Object {name:'O10'}),(b:Object {name:'O9'}) CREATE (a)<-[r:PARENT_OF]-(b);
+
+MATCH (a:Object {name:'O11'}),(b:User {name:'U1'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+MATCH (a:Role {name:'R9'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Object {name:'O12'}),(b:Role {name:'R9'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false}]-(b);
+MATCH (a:Object {name:'O12'}),(b:Object {name:'O11'}) CREATE (a)<-[r:PARENT_OF]-(b);
+
+MATCH (a:Role {name:'R10'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R11'}),(b:Role {name:'R10'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Object {name:'O13'}),(b:Role {name:'R10'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false}]-(b);
+MATCH (a:Object {name:'O13'}),(b:Role {name:'R11'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+
+MATCH (a:Role {name:'R12'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R13'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R14'}),(b:Role {name:'R13'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Object {name:'O14'}),(b:Role {name:'R12'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false}]-(b);
+MATCH (a:Object {name:'O14'}),(b:Role {name:'R14'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+
+MATCH (a:Role {name:'R15'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R16'}),(b:Role {name:'R15'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Object {name:'O15'}),(b:Role {name:'R15'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+MATCH (a:Object {name:'O16'}),(b:Role {name:'R16'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false}]-(b);
+MATCH (a:Object {name:'O16'}),(b:Object {name:'O15'}) CREATE (a)<-[r:PARENT_OF]-(b);
+
+MATCH (a:Role {name:'R17'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R18'}),(b:Role {name:'R17'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Object {name:'O17'}),(b:Role {name:'R17'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+MATCH (a:Object {name:'O18'}),(b:Role {name:'R18'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false}]-(b);
+MATCH (a:Object {name:'O17'}),(b:Object {name:'O18'}) CREATE (a)<-[r:PARENT_OF]-(b);
+
+MATCH (a:Role {name:'R19'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Role {name:'R20'}),(b:User {name:'U1'}) CREATE (a)<-[r:MEMBER_OF]-(b);
+MATCH (a:Object {name:'O19'}),(b:Role {name:'R19'}) CREATE (a)<-[r:HAS_PERMISSION {READ:true}]-(b);
+MATCH (a:Object {name:'O20'}),(b:Role {name:'R20'}) CREATE (a)<-[r:HAS_PERMISSION {READ:false}]-(b);
+MATCH (a:Object {name:'O20'}),(b:Object {name:'O19'}) CREATE (a)<-[r:PARENT_OF]-(b);
 ----
 
 
